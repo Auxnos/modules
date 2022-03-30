@@ -1,0 +1,15 @@
+local keybinds = {}
+local uis = game:GetService("UserInputService")
+function keybinds.add(key,func)
+local input = uis.InputBegan
+
+input:Connect(function(inputobject,test)
+if not test then
+if inputobject.KeyCode == key then
+func()
+end
+end
+end)
+end
+
+return keybinds
